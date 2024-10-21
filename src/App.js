@@ -9,9 +9,12 @@ const Container = styled.div`
 
 const Main = styled.div`
   flex: 7;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Wrapper = styled.div`
+  flex: 1;
 
 `;
 
@@ -21,12 +24,13 @@ function App() {
       <Menu />
       <Main>
         <Navbar />
+        <Wrapper>
+          video cards
+        </Wrapper>
       </Main>
-      <Wrapper>
-        video cards
-      </Wrapper>
     </Container>
   );
 }
+
 
 export default App;
