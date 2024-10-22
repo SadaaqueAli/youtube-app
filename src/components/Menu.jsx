@@ -24,9 +24,12 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const Container = styled.div`
   flex: 1;
-  background-color: #202020;
-  color: white;
+  height:100vh;
+  background-color: ${({ theme }) => theme.bg};
+  color: ${({ theme }) => theme.text};
   font-size: 14px;
+  position:sticky;
+  top:0;
 `;
 
 const Wrapper = styled.div`
@@ -38,7 +41,7 @@ const Logo = styled.div`
   align-items: center;
   gap: 5px;
   font-weight: bold;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 `;
 
 const Img = styled.img`
@@ -50,35 +53,41 @@ const Item = styled.div`
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  padding: 8px 0;
+  padding: 2.5px 0px;
 `;
 
 const Hr = styled.hr`
-  margin: 15px 0px;
-  border: 0.5px solid #373737;
+  margin: 8px 0px;
+  border: 0.5px ${({ theme }) => theme.soft};
 `;
 
 const Login = styled.div`
-  margin-top: 10px;
-  font-size:15px;
+  margin-top: 1px;
+  font-size:14px;
 `;
 
 const Button = styled.div`
   display:flex;
   align-items:center;
-  gap:7px;
+  width:90px;
+  gap:5px;
   padding: 3px 5px;
   background-color: transparent;
   border: 1px solid #3ea6ff;
   color: #3ea6ff;
-  border-radius: 3px;
-  font-weight: 500;
-  margin-top: 10px;
+  border-radius: 4px;
+  font-weight: 300;
+  margin-top: 2px;
   cursor: pointer;
 `;
 
-
-export default function Menu() {
+const Title = styled.h2`
+    font-size:14px;
+    font-weight:500px;
+    color:#aaaaaa;
+    margin-bottom:20px;
+`
+export default function Menu({ darkMode, setDarkMode }) {
     return (
         <Container>
             <Wrapper>
@@ -109,50 +118,52 @@ export default function Menu() {
                 </Item>
                 <Hr />
                 <Login>
-                    Sigin in to like videos, comment, and subscribe.
-                    <Button><AccountCircleIcon /> Sign In</Button>
+                    Sigin in to like videos & subscribe.
+                    <Button><AccountCircleIcon /> SignIn</Button>
                 </Login>
-                <Item>
-                    <LibraryMusicIcon />
-                    Music
-                </Item>
-                <Item>
-                    <SportsSoccerIcon />
-                    Sports
-                </Item>
-                <Item>
-                    <VideogameAssetIcon />
-                    Gaming
-                </Item>
-                <Item>
-                    <MovieCreationIcon />
-                    Movies
-                </Item>
-                <Item>
-                    <FeedIcon />
-                    News
-                </Item>
-                <Item>
-                    <LiveTvIcon />
-                    Live
-                </Item>
                 <Hr />
-                <Item>
-                    <SettingsIcon />
-                    Settings
-                </Item>
-                <Item>
-                    <FlagIcon />
-                    Report
-                </Item>
-                <Item>
-                    <HelpOutlineIcon />
-                    Help
-                </Item>
-                <Item>
-                    <SettingsBrightnessIcon />
-                    Mode
-                </Item>
+                <Title>Best of Videotube</Title>
+                    <Item>
+                        <LibraryMusicIcon />
+                        Music
+                    </Item>
+                    <Item>
+                        <SportsSoccerIcon />
+                        Sports
+                    </Item>
+                    <Item>
+                        <VideogameAssetIcon />
+                        Gaming
+                    </Item>
+                    <Item>
+                        <MovieCreationIcon />
+                        Movies
+                    </Item>
+                    <Item>
+                        <FeedIcon />
+                        News
+                    </Item>
+                    <Item>
+                        <LiveTvIcon />
+                        Live
+                    </Item>
+                    <Hr />
+                    <Item>
+                        <SettingsIcon />
+                        Settings
+                    </Item>
+                    <Item>
+                        <FlagIcon />
+                        Report
+                    </Item>
+                    <Item>
+                        <HelpOutlineIcon />
+                        Help
+                    </Item>
+                    <Item onClick={() => setDarkMode(!darkMode)}>
+                        <SettingsBrightnessIcon />
+                        Mode
+                    </Item>
             </Wrapper>
         </Container>
     )
