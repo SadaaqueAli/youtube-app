@@ -4,6 +4,11 @@ import Menu from './components/Menu';
 import Navbar from './components/Navbar';
 import { darkTheme, lightTheme } from './utils/Them';
 import { useState } from 'react';
+import {
+  BrowserRouter, Routes, Route,
+} from "react-router-dom";
+import Home from './pages/Home';
+import Video from './pages/Video';
 
 const Container = styled.div`
   display: flex; 
@@ -15,27 +20,30 @@ const Main = styled.div`
 `;
 
 const Wrapper = styled.div`
-  flex: 1;
-
+  padding: 22px 96px;
 `;
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      <Container>
-        <Menu darkMode={darkMode} setDarkMode={setDarkMode} />
-        <Main>
-          <Navbar />
-          <Wrapper>
-            
-          </Wrapper>
-        </Main>
-      </Container>
+      <BrowserRouter>
+        <Container>
+          <Menu darkMode={darkMode} setDarkMode={setDarkMode} />
+          <Main>
+            <Navbar />
+            <Wrapper>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="video/:id" element={<Video />} />
+              </Routes>
+            </Wrapper>
+          </Main>
+        </Container>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
-
 
 export default App;

@@ -29,13 +29,19 @@ const Search = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 5px;
-  border-radius: 3px; /* Correct border-radius */
-  border: 1px solid #ccc; /* Proper border */
+  border-radius: 3px; 
+  border: 1px solid #ccc;
+  color: ${({ theme }) => theme.text};
 `;
 
 const Input = styled.input`
   border: none;
+  width:100%;
+  padding:5px;
+  font-weight:500px;
+  color:${({ theme }) => theme.text};
   background-color: transparent;
+  outline:none;
 `;
 
 const Button = styled.div`

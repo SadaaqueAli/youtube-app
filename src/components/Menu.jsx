@@ -17,6 +17,8 @@ import FlagIcon from '@mui/icons-material/Flag';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Link } from 'react-router-dom';
+import { Light } from '@mui/icons-material';
 
 
 
@@ -91,10 +93,12 @@ export default function Menu({ darkMode, setDarkMode }) {
     return (
         <Container>
             <Wrapper>
-                <Logo>
-                    <Img src={VideoTube} />
-                    VideoTube
-                </Logo>
+                <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+                    <Logo>
+                        <Img src={VideoTube} />
+                        VideoTube
+                    </Logo>
+                </Link>
                 <Item>
                     <HomeIcon />
                     Home
@@ -123,47 +127,47 @@ export default function Menu({ darkMode, setDarkMode }) {
                 </Login>
                 <Hr />
                 <Title>Best of Videotube</Title>
-                    <Item>
-                        <LibraryMusicIcon />
-                        Music
-                    </Item>
-                    <Item>
-                        <SportsSoccerIcon />
-                        Sports
-                    </Item>
-                    <Item>
-                        <VideogameAssetIcon />
-                        Gaming
-                    </Item>
-                    <Item>
-                        <MovieCreationIcon />
-                        Movies
-                    </Item>
-                    <Item>
-                        <FeedIcon />
-                        News
-                    </Item>
-                    <Item>
-                        <LiveTvIcon />
-                        Live
-                    </Item>
-                    <Hr />
-                    <Item>
-                        <SettingsIcon />
-                        Settings
-                    </Item>
-                    <Item>
-                        <FlagIcon />
-                        Report
-                    </Item>
-                    <Item>
-                        <HelpOutlineIcon />
-                        Help
-                    </Item>
-                    <Item onClick={() => setDarkMode(!darkMode)}>
-                        <SettingsBrightnessIcon />
-                        Mode
-                    </Item>
+                <Item>
+                    <LibraryMusicIcon />
+                    Music
+                </Item>
+                <Item>
+                    <SportsSoccerIcon />
+                    Sports
+                </Item>
+                <Item>
+                    <VideogameAssetIcon />
+                    Gaming
+                </Item>
+                <Item>
+                    <MovieCreationIcon />
+                    Movies
+                </Item>
+                <Item>
+                    <FeedIcon />
+                    News
+                </Item>
+                <Item>
+                    <LiveTvIcon />
+                    Live
+                </Item>
+                <Hr />
+                <Item>
+                    <SettingsIcon />
+                    Settings
+                </Item>
+                <Item>
+                    <FlagIcon />
+                    Report
+                </Item>
+                <Item>
+                    <HelpOutlineIcon />
+                    Help
+                </Item>
+                <Item onClick={() => setDarkMode(!darkMode)}>
+                    <SettingsBrightnessIcon />
+                    {darkMode ? "Light" : "Dark"} Mode
+                </Item>
             </Wrapper>
         </Container>
     )
