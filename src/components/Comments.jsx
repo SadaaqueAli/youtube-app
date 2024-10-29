@@ -5,7 +5,8 @@ import Comment from './Comment';
 
 
 
-const Container = styled.div``;
+const Container = styled.div`
+`;
 const NewComment = styled.div`
 display:flex;
 align-items:center;
@@ -32,6 +33,9 @@ const Comments = () => {
                 <Avatar src={Chaneliamge} />
                 <Input placeholder='Add a comment...' />
             </NewComment>
+            <Comment />
+            <Comment />
+            <Comment />
             <Comment />
             <Comment />
             <Comment />

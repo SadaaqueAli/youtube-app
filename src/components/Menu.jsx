@@ -18,7 +18,6 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from 'react-router-dom';
-import { Light } from '@mui/icons-material';
 
 
 
@@ -56,6 +55,10 @@ const Item = styled.div`
   gap: 8px;
   cursor: pointer;
   padding: 2.5px 0px;
+
+  &:hover{
+    background-color:${({ theme }) => theme.soft};
+  }
 `;
 
 const Hr = styled.hr`
@@ -83,12 +86,6 @@ const Button = styled.div`
   cursor: pointer;
 `;
 
-const Title = styled.h2`
-    font-size:14px;
-    font-weight:500px;
-    color:#aaaaaa;
-    margin-bottom:20px;
-`
 export default function Menu({ darkMode, setDarkMode }) {
     return (
         <Container>
@@ -122,11 +119,12 @@ export default function Menu({ darkMode, setDarkMode }) {
                 </Item>
                 <Hr />
                 <Login>
-                    Sigin in to like videos & subscribe.
-                    <Button><AccountCircleIcon /> SignIn</Button>
+                    Sign in to like videos & subscribe.
+                    <Link to="signin" style={{ textDecoration: "none", color: "inherit" }}>
+                        <Button><AccountCircleIcon /> Sign In</Button>
+                    </Link>
                 </Login>
                 <Hr />
-                <Title>Best of Videotube</Title>
                 <Item>
                     <LibraryMusicIcon />
                     Music

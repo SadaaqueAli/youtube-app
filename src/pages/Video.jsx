@@ -7,6 +7,7 @@ import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 import ShareIcon from '@mui/icons-material/Share';
 import Comments from '../components/Comments';
+import Card from '../components/Card'
 
 
 
@@ -20,7 +21,11 @@ const Content = styled.div`
 `;
 
 const Videowrapper = styled.div`
- 
+  iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 12px; /* Add border-radius for rounded corners */
+  }
 `;
 
 const Title = styled.h1`
@@ -87,7 +92,7 @@ font-weight:500;
 `;
 const ChanelCounter = styled.span`
 margin-top:5px;
-margin-bottom:20px;
+margin-bottom:10px;
 color:${({ theme }) => theme.textSoft};
 font-size:12px;
 `;
@@ -138,12 +143,12 @@ export default function Video() {
         <Hr />
         <Chanel>
           <ChanelInfo>
-            <Image src={Chaneliamge}/>
+            <Image src={Chaneliamge} />
             <ChanelDetail>
               <ChanelName>code with sada</ChanelName>
               <ChanelCounter>200k flowers</ChanelCounter>
               <Discription>Lorem ipsum dolor sit amet consectetur, adipisicing
-                 elit. Fugit, placeat.</Discription>
+                elit. Fugit, placeat.</Discription>
             </ChanelDetail>
           </ChanelInfo>
           <Subscribe>SUBSCRIPBE</Subscribe>
@@ -151,7 +156,21 @@ export default function Video() {
         <Hr />
         <Comments />
       </Content>
-      <Recomendation>Recommendation</Recomendation>
+      <Recomendation>
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+      </Recomendation>
     </Container>
   );
 }

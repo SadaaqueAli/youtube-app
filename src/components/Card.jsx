@@ -1,31 +1,39 @@
-import React from 'react'
-import styled from 'styled-components'
-import VideoTube from '../images/video.png'
+import React from 'react';
+import styled from 'styled-components';
+import cardImage from '../images/cardImage.jpg';
+import VideoTube from '../images/video.png';
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
-width:300px;
-margin-bottom:45px;
-cursor: pointer;
+  width: ${(props) => (props.type !== "sm" ? "360px" : "100%")};
+  margin-bottom: ${(props) => (props.type === "sm" ? "10px" : "45px")};
+  cursor: pointer;
+  display: ${(props) => (props.type === "sm" ? "flex" : "block")};
+  gap:10px;
+`;
 
-`
 const Image = styled.img`
-  width:100%;
-  height:202px;
-  background-color:#999;
+  width: 100%;
+  height: ${(props) => (props.type === "sm" ? "120px" : "202px")};
+  background-color: #999;
+  flex: 1;
+  border-radius:12px;
 `;
 
 const Detail = styled.div`
-display:flex;
-margin-top:16px;
-gap:12px;
-`
+  display: flex;
+  gap: 10px;
+  flex: 1;
+`;
+
 const ChanelImage = styled.img`
-width:36px;
-height:36px;
-border-radius:50%;
-background-color:#999;
-`
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #999;
+  display: ${(props) => (props.type === "sm" && "none")};
+`;
+
 const Text = styled.div`
   display: flex;
   flex-direction: column;
@@ -51,21 +59,20 @@ const Info = styled.div`
   color: ${({ theme }) => theme.textSoft}; 
 `;
 
-
-export default function Card() {
-    return (
-        <Link to="video/test" style={{textDecoration:"none"}}>
-        <Container>
-            <Image src={VideoTube} />
-            <Detail>
-            <ChanelImage src={VideoTube} />
-            <Text>
-                <Title>Test Video</Title>
-                <ChanelName>Code with sada</ChanelName>
-                <Info>656,621 views 1 day ago</Info>
-            </Text>
-            </Detail>
-        </Container>
-        </Link>
-    )
+export default function Card({ type }) {
+  return (
+    <Link to="video/test" style={{ textDecoration: "none" }}>
+      <Container type={type}>
+        <Image type={type} src={cardImage} />
+        <Detail type={type}>
+          <ChanelImage type={type} src={VideoTube} />
+          <Text>
+            <Title>Test Video</Title>
+            <ChanelName>Code with sada</ChanelName>
+            <Info>656,621 views 1 day ago</Info>
+          </Text>
+        </Detail>
+      </Container>
+    </Link>
+  );
 }
