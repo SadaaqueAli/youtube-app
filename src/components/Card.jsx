@@ -5,7 +5,7 @@ import VideoTube from '../images/video.png';
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
-  width: ${(props) => (props.type !== "sm" ? "360px" : "100%")};
+  width: ${(props) => (props.type !== "sm" ? "235px" : "100%")};
   margin-bottom: ${(props) => (props.type === "sm" ? "10px" : "45px")};
   cursor: pointer;
   display: ${(props) => (props.type === "sm" ? "flex" : "block")};
@@ -14,7 +14,7 @@ const Container = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: ${(props) => (props.type === "sm" ? "120px" : "202px")};
+  height: ${(props) => (props.type === "sm" ? "110px" : "180px")};
   background-color: #999;
   flex: 1;
   border-radius:12px;

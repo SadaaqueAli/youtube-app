@@ -4,16 +4,27 @@ import Card from '../components/Card'
 
 
 const Container = styled.div`
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Four cards per row */
+  gap: 20px; /* Adjust spacing between cards */
+  width: 100%;
   font-size: 24px;
   color: ${({ theme }) => theme.text};
+
 `;
+
 
 export default function Home() {
   return (
     <Container>
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
       <Card />
       <Card />
       <Card />

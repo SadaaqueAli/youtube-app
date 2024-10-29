@@ -42,6 +42,7 @@ const Comments = () => {
             <Comment />
             <Comment />
             <Comment />
+            <Comment />
         </Container>
     )
 }

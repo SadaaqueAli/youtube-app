@@ -19,6 +19,7 @@ const Wrapper = styled.div`
   padding: 20px 40px;
   gap: 15px;
   border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 `;
 
 const Title = styled.h1`

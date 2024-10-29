@@ -170,6 +170,8 @@ export default function Video() {
         <Card type="sm" />
         <Card type="sm" />
         <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
       </Recomendation>
     </Container>
   );
