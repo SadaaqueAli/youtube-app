@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import cardImage from '../images/cardImage.jpg';
-import VideoTube from '../images/video.png';
 import { Link } from 'react-router-dom';
+import {format} from "timeago.js";
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 const Container = styled.div`
   width: ${(props) => (props.type !== "sm" ? "235px" : "100%")};
@@ -59,20 +60,32 @@ const Info = styled.div`
   color: ${({ theme }) => theme.textSoft}; 
 `;
 
-export default function Card({ type }) {
+export default function Card({ type, video }) {
+  const [channel, setChannel] = useState({})
+
+  useEffect( () => {
+    const fetchChannel = async () => {
+      const res = await axios.get(`/users/find/${video.userId}`);
+      setChannel(res.data);
+    };
+    fetchChannel();
+  }, [video.userId]);
+
   return (
     <Link to="video/test" style={{ textDecoration: "none" }}>
       <Container type={type}>
-        <Image type={type} src={cardImage} />
+        <Image type={type}
+         src={video.imgUrl} />
         <Detail type={type}>
-          <ChanelImage type={type} src={VideoTube} />
+          <ChanelImage type={type}
+           src={channel.img} />
           <Text>
-            <Title>Test Video</Title>
-            <ChanelName>Code with sada</ChanelName>
-            <Info>656,621 views 1 day ago</Info>
+            <Title>{video.title}</Title>
+            <ChanelName>{channel.name}</ChanelName>
+            <Info>{video.views} views . {format(video.createdAt)}</Info>
           </Text>
         </Detail>
       </Container>
     </Link>
-  );
+  ); 
 }

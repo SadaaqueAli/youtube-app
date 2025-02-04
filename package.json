@@ -1,5 +1,5 @@
 {
-  "name": "video-app",
+  "name": "c",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,15 +7,21 @@
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^6.1.4",
     "@mui/material": "^6.1.4",
+    "@reduxjs/toolkit": "^2.5.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "axios": "^1.7.9",
+    "firebase": "^11.2.0",
     "react": "^18.3.1",
     "react-devtools": "^6.0.1",
     "react-dom": "^18.3.1",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^6.27.0",
     "react-scripts": "5.0.1",
+    "redux-persist": "^6.0.0",
     "styled-components": "^6.1.13",
+    "timeago.js": "^4.0.2",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
@@ -41,5 +47,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:8800/api/",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  },
+  "author": "",
+  "license": "ISC"
 }

@@ -18,7 +18,7 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
 
 
 
@@ -87,6 +87,9 @@ const Button = styled.div`
 `;
 
 export default function Menu({ darkMode, setDarkMode }) {
+    const { currentUser } = useSelector((state) => state.user);
+
+
     return (
         <Container>
             <Wrapper>
@@ -100,14 +103,18 @@ export default function Menu({ darkMode, setDarkMode }) {
                     <HomeIcon />
                     Home
                 </Item>
-                <Item>
-                    <ExploreIcon />
-                    Explore
-                </Item>
-                <Item>
-                    <SubscriptionsIcon />
-                    Subscriptions
-                </Item>
+                <Link to="tre" style={{ textDecoration: "none", color: "inherit" }}>
+                    <Item>
+                        <ExploreIcon />
+                        Explore
+                    </Item>
+                </Link>
+                <Link to="subscriptions" style={{ textDecoration: "none", color: "inherit" }}>
+                    <Item>
+                        <SubscriptionsIcon />
+                        Subscriptions
+                    </Item>
+                </Link>
                 <Hr />
                 <Item>
                     <VideoLibraryIcon />
@@ -118,13 +125,17 @@ export default function Menu({ darkMode, setDarkMode }) {
                     History
                 </Item>
                 <Hr />
+                {!currentUser &&
+                    <>
                 <Login>
                     Sign in to like videos & subscribe.
                     <Link to="signin" style={{ textDecoration: "none", color: "inherit" }}>
                         <Button><AccountCircleIcon /> Sign In</Button>
                     </Link>
                 </Login>
-                <Hr />
+                <Hr /> 
+                </>
+                }
                 <Item>
                     <LibraryMusicIcon />
                     Music
